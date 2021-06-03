@@ -10,4 +10,9 @@ class TasksController < ApplicationController
         erb :'tasks/new'
     end
 
+    get 'tasks/:id' do
+        @task = Task.find(params[:id])
+        erb :'tasks/show'
+    end
+
 end
