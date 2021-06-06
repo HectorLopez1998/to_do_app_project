@@ -10,7 +10,10 @@ class TasksController < ApplicationController
         erb :'tasks/new'
     end
 
-   
+    get 'tasks/:id' do
+        find_task
+        erb :'tasks/show'
+    end
 
     private
     def find_task
