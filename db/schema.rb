@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_03_152911) do
+ActiveRecord::Schema.define(version: 2021_06_06_224146) do
+
+  create_table "lists", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.string "title"
