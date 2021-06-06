@@ -10,9 +10,11 @@ class TasksController < ApplicationController
         erb :'tasks/new'
     end
 
-    get 'tasks/:id' do
-        @task = Task.find(params[:id])
-        erb :'tasks/show'
+   
+
+    private
+    def find_task
+        @task = Task.find_by(id:params[:id])
     end
 
 end
