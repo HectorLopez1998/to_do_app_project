@@ -15,6 +15,13 @@ class TasksController < ApplicationController
         erb :'tasks/show'
     end
 
+    post '/tasks' do 
+        @task = Task.new(params)
+        @task.user_id = session[:user_id]
+        @task.save
+        redirect '/tasks/#{@task.id}'
+    end
+
     private
     def find_task
         @task = Task.find_by(id:params[:id])
