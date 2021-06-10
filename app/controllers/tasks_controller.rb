@@ -15,11 +15,12 @@ class TasksController < ApplicationController
         erb :'tasks/show'
     end
 
-    post '/tasks' do 
+    post '/tasks/new' do 
         @task = Task.new(params)
         @task.user_id = session[:user_id]
         @task.save
-        redirect '/tasks/#{@task.id}'
+        redirect "/tasks/#{@task.id}"
+        
     end
 
     private

@@ -1,6 +1,12 @@
 <h1> WELCOME TO MY PROJECT. </h1>
 
-
+<% @tasks.each do |t|%>
+<br>
+Title: <%= t.title%> - <%=t.id%><br>
+Description: <%= t.description%><br>
+Created at: <u><%=t.created_at%></u><br>
+Last updated: <u><%=t.updated_at%></u><br>
+<%end%>
 <br>
 
 
