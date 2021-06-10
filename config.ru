@@ -5,4 +5,4 @@ use Rack::MethodOverride
 run ApplicationController
 use TasksController
 use UsersController
-use ListController
+use ListsController
