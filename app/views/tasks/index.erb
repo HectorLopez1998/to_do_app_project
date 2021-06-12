@@ -4,7 +4,7 @@
 
 <% @tasks.each do |t|%>
 <br>
-Title: <%= t.title%> - <%=t.id%><br>
+Title: <%= t.title%> - <%=t.id%><a href="/tasks/edit">Update</a><br>
 Description: <%= t.description%><br>
 Created at: <u><%=t.created_at%></u><br>
 Last updated: <u><%=t.updated_at%></u><br>
