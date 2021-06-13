@@ -1,17 +1,22 @@
 class TasksController < ApplicationController
-
+    
     get '/tasks' do
         @tasks = Task.all 
+        @user = current_user
         erb :'tasks/index'
     end
 
     get '/tasks/new' do
+      redirect_if_not_logged_in
+      @user = current_user
         @task = Task.new
         erb :'tasks/new'
     end
 
     get '/tasks/:id' do
         find_task
+        @tasks = Task.all
+        @user = current_user
         erb :'tasks/show'
     end
     

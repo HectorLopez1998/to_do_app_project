@@ -1,14 +1,24 @@
-<h1> WELCOME TO MY PROJECT. </h1>
+<h1>Welcome <%=@user.username %></h1>
 
-<a href="/logout"<button type="button" class="btn btn-default">Log out</button></a>
 
+<a href="/logout"class="btn btn-primary">Log out</button></a>
+
+<div class="center">
+<h3>Your Lists </h3> <b>
 <% @tasks.each do |t|%>
+<% if t.user_id == @user.id %>
 <br>
-Title: <%= t.title%> - <%=t.id%><a href="/tasks/edit">Update</a><br>
-Description: <%= t.description%><br>
+ <%= t.title%><a href="/tasks/edit"> Edit list</a><br>
+ <%= t.description%><br>
 Created at: <u><%=t.created_at%></u><br>
 Last updated: <u><%=t.updated_at%></u><br>
 <%end%>
+<%end%>
 <br>
+</div>
+
+<a href="/tasks/new" class="btn btn-primary">Create List</a>
+
+
 
 
