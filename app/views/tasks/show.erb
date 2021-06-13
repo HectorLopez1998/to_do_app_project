@@ -5,13 +5,16 @@
 <%= t.title%><br>
 <%= t.description%><br>
 
-<a href='/tasks'>Go Home</a>
+
 
 <form action="/tasks/<%= t.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete task">
-    <input type="submit ">
+    <input type="submit" value="Delete list">
+    
 <a href="/tasks/<%= t.id %>/edit">Update</a>
 </form>
 <%end%>
 <%end%>
+<br>
+
+<a href='/tasks'>Go Home</a>
