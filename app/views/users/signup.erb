@@ -1,16 +1,8 @@
 <h1>Sign Up</h1>
-<form method="post" action="/signup">
-<div class="form-group">
-<label for="username">Username</label>
-<input type="text" name="username" placeholder="Your Username"><br>
-</div>
-<div class="form-group">
-<label for="password">Password</label>
-<input type="password" name="password" placeholder="Your Password"><br>
-</div>
-
-<input class="btn btn-primary" type="submit" name="submit" value="Sign Up!">
+<form action="/signup" method="post">
+    
+    Enter Username: <input type=text name="username" >
+    
+    Enter Password: <input type=password name="password" >
+    <input class="btn btn-primary" type=submit value="Signup" >
 </form>
-
-<br>
-<a href="/login" class="btn btn-primary">Log in</a>

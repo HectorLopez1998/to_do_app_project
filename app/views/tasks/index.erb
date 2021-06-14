@@ -8,7 +8,7 @@
 <% @tasks.each do |t|%>
 <% if t.user_id == @user.id %>
 <br>
- <%= t.title%><a href="/tasks/edit"> Edit list</a><br>
+ <%= t.title%><a href="/tasks/<%= t.id%>/edit"> Edit list</a><br>
  <%= t.description%><br>
 Created at: <u><%=t.created_at%></u><br>
 Last updated: <u><%=t.updated_at%></u><br>
