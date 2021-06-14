@@ -1,20 +1,12 @@
 <h3>Show page </h3>
-
-<% @tasks.each do |t|%><br>
-<% if t.user_id == @user.id %>
-<%= t.title%><br>
-<%= t.description%><br>
-
-
-
-<form action="/tasks/<%= t.id %>" method="post">
+<h1><%=@task.title %></h1>
+<h2><%=@task.description%></h2>
+<% if @task.user == current_user %>
+    <a href="/tasks/<%= @task.id %>/edit">Update</a>
+<form action="/tasks/<%= @task.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete list">
-    
-<a href="/tasks/<%= t.id %>/edit">Update</a>
 </form>
 <%end%>
-<%end%>
 <br>
-
 <a href='/tasks'>Go Home</a>
