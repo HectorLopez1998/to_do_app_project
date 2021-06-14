@@ -7,7 +7,6 @@ class TasksController < ApplicationController
   end
 
   get '/tasks/new' do
-    
     @user = current_user
       @task = Task.new
       erb :'tasks/new'

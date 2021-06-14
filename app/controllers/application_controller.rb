@@ -3,7 +3,6 @@ require './config/environment'
 class ApplicationController < Sinatra::Base
 
   configure do
-    
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "secret"
@@ -21,7 +20,7 @@ class ApplicationController < Sinatra::Base
       !!session[:user_id]
     end
 
-    def current_user # return logged in user 
+    def current_user  
       @current_user ||= User.find_by_id(session[:user_id]) #memoization
      end 
     
