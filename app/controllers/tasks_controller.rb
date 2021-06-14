@@ -7,7 +7,7 @@ class TasksController < ApplicationController
   end
 
   get '/tasks/new' do
-    redirect_if_not_logged_in
+    
     @user = current_user
       @task = Task.new
       erb :'tasks/new'
@@ -30,12 +30,14 @@ class TasksController < ApplicationController
 
     get '/tasks/:id/edit' do 
       @task = Task.find_by(id:params[:id])
+      redirect_if_not_authorized
       # not_authorized 
        erb :"/tasks/edit"
     end
 
     patch '/tasks/:id' do 
       @task = Task.find_by(id:params[:id])
+      redirect_if_not_authorized
       @task.update(title: params[:title], description: params[:description])
       redirect "/tasks/#{@task.id}"
     end
@@ -50,6 +52,14 @@ class TasksController < ApplicationController
   def find_task
       @task = Task.find_by(id:params[:id])
   end
+
+  def redirect_if_not_authorized
+    if @task.user != current_user
+        flash[:error] = "You cant make this edit, you don't own this"
+        redirect '/tasks'
+    end 
+
+end 
 
   
 
