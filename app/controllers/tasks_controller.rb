@@ -7,6 +7,7 @@ class TasksController < ApplicationController
   end
 
   get '/tasks/new' do
+    @task = Task.find_by(id:params[:id])
     @user = current_user
       @task = Task.new
       erb :'tasks/new'
