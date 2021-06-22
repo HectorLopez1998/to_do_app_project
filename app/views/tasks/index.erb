@@ -1,13 +1,13 @@
 <h1>Welcome <%=@user.username %></h1>
-
-
+<div>
 <a href="/logout"class="btn btn-primary">Log out</button></a>
-
+</div>
+<br>
 <div class="center">
 <h3>Your Lists </h3> <b>
+<br>
 <% @tasks.each do |t|%>
 <% if t.user_id == @user.id %>
-<br>
  <%= t.title%><a href="/tasks/<%= t.id%>/edit"> Edit list</a><br>
  <%= t.description%><br>
 Created at: <u><%=t.created_at%></u><br>
