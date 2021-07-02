@@ -1,6 +1,6 @@
 <h2>Show page </h2>
 <h1><%=@task.title %></h1>
-<h2><%=@task.description%></h2>
+<h2 style="white-space: pre-line" ><%=@task.description%></h2>
 <% if @task.user == current_user %>
     <a href="/tasks/<%= @task.id %>/edit">Update</a>
 <form action="/tasks/<%= @task.id %>" method="post">

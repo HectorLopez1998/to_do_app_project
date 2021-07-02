@@ -1,4 +1,4 @@
-<h1>Welcome <%=@user.username %></h1>
+<h1>Welcome</h1> <%=@user.username%>
 <div>
 <a href="/logout"class="btn btn-primary">Log out</button></a>
 </div>
@@ -6,12 +6,11 @@
 <div class="center">
 <h3>Your Lists </h3> <b>
 <br>
+
 <% @tasks.each do |t|%>
-<% if t.user_id == @user.id %>
+<% if current_user == t.user %>
  <%= t.title%><a href="/tasks/<%= t.id%>/edit"> Edit list</a><br>
- <%= t.description%><br>
-Created at: <u><%=t.created_at%></u><br>
-Last updated: <u><%=t.updated_at%></u><br>
+ <p style="white-space: pre-line"><%= t.description%></p>
 <%end%>
 <%end%>
 <br>
